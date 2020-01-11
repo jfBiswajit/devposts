@@ -317,3 +317,8 @@ form#search-post input[type="submit"]:hover {
 .create-post textarea {
   resize: none;
 }
+
+/* add new category page */
+#category-extra-margin-bottom {
+  margin-bottom: 13.05rem;
+}
