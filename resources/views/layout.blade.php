@@ -28,9 +28,9 @@
       </div>
       <div class="navbar-wrapper">
         <ul>
-          <li><i class="fas fa-home"></i> <a href="index.html">HOME</a></li>
-          <li><i class="fas fa-user"></i> <a href="about.html">ABOUT ME</a></li>
-          <li><i class="fas fa-edit"></i> <a href="#">ADD NEW POST</a></li>
+          <li><i class="fas fa-home"></i> <a href="{{URL::to('/')}}">HOME</a></li>
+        <li><i class="fas fa-user"></i> <a href="{{URL::to('/about')}}">ABOUT ME</a></li>
+        <li><i class="fas fa-edit"></i> <a href="{{URL::to('/create_post')}}">ADD NEW POST</a></li>
         </ul>
       </div>
       <div class="button-wrapper">
@@ -48,26 +48,9 @@
         <input type="submit" value="SEARCH">
       </form>
     </div>
-    <div class="posts-container">
-      <div class="btn-group">
-        <a href="add_new_category.html"><button class="new-post-btn btn-green">Add New Category</button></a>
-        <a href="#"><button class="new-post-btn btn-yellow">Show All Category</button></a>
-      </div>
-      
-      <form action="" class="create-post" enctype="multipart/form-data">
-        <input type="text" name="" id="" placeholder="Post Title" size="40">
-        <select name="" id="">
-          <option value="">HTML</option>
-          <option value="">CSS</option>
-          <option value="">javascript</option>
-          <option value="">PHP</option>
-          <option value="">Laravel</option>
-        </select>
-        <input type="file" name="" id="">
-        <textarea name="" id="" cols="40" rows="2"></textarea>
-        <button type="submit">Create</button>
-      </form>
-    </div>
+    {{-- Header and sidebar end --}}
+    @yield('content')
+    {{-- Footer --}}
     <footer id="main-footer">
       <p>Design and Developed by Biswajit Biswas</p>
     </footer>
