@@ -3,8 +3,9 @@
     <div class="posts-container">
       <div class="post-item">
         <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
+          <img src="{{ asset('storage/post_thumbnail/spvg.jpg') }}">
         </div>
+        {{-- {{$posts}} --}}
         <div class="post-description">
           <a href="#" class='post-title'>
             <h3>Why Every Developer Should Have A Blog</h3>
