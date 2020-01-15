@@ -1,198 +1,28 @@
 @extends('layout')
 @section('content')
     <div class="posts-container">
-      <div class="post-item">
+      @foreach ($posts as $post)
+         <div class="post-item">
         <div class="post-thubnail">
-          <img src="{{ asset('storage/post_thumbnail/spvg.jpg') }}">
-        </div>
-        {{-- {{$posts}} --}}
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <!-- Dummy post Starts -->
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
+          <img src="{{ asset('storage/post_thumbnail/' . $post->image) }}">
         </div>
         <div class="post-description">
           <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
+          <h3><a href="{{URL::to('/post_details?id=' . $post->id)}}" style="color: black">{{$post->title}}</a></h3>
           </a>
           <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
+          <li>{{$timesAgo($post->created_at)}}</li>
+            <li>{{round(str_word_count($post->details) / 250)}} min to read</li>
+            <li><a href="#">{{$post->category_id}}</a></li>
             <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
           </ul>
           <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
+            {{substr($post->details, 0, 230) . '...'}}
           </div>
-          <a href="#" class="read-more">Read More</a>
+          <a href="{{URL::to('/post_details?id=' . $post->id)}}" class="read-more">Read More</a>
         </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="post-item">
-        <div class="post-thubnail">
-          <img src="./asset/img/js.jpg">
-        </div>
-        <div class="post-description">
-          <a href="#" class='post-title'>
-            <h3>Why Every Developer Should Have A Blog</h3>
-          </a>
-          <ul class="post-activity">
-            <li>post 2 days ago</li>
-            <li>5 min to read</li>
-            <li><a href="#">PHP</a></li>
-            <li>Created By: <a href="#" style="font-weight: bold; color: #0ca678;">Admin</a></li>
-          </ul>
-          <div class="post-intro">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione rem repudiandae repellat ipsam explicabo
-            vitae sint sunt minus officiis qui, quaerat aliquam ex temporibus animi! Praesentium optios non...
-          </div>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <!-- Dummy post end -->
+      </div> 
+      @endforeach
 
       <div class="next-btn">
         <a href="#">Next</a>

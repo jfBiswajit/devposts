@@ -15,13 +15,12 @@ class careatePostController extends Controller
 
     public function newpostadded(Request $request) {
       $img = $request->file('image');
-      $path = 'post_thumbnail';
+      $path = 'public/post_thumbnail';
       $img_name = strtolower(Str::random(4) . '.' .  $img->getClientOriginalExtension());
-      
       $img->storeAs($path, $img_name);
-      $img_path = $img->storeAs($path, $img_name);
+      // $img_path = $img->storeAs('test', "test.jpg");
 
-      $data = array('category_id' => $request->get('category'), 'title' =>$request->get('title'), 'details' =>$request->get('details'), 'image' => $img_path);
+      $data = array('category_id' => $request->get('category'), 'title' =>$request->get('title'), 'details' =>$request->get('details'), 'image' => $img_name);
 
       if (DB::table('posts')->insert($data)) {
         echo "Post successfully created.";

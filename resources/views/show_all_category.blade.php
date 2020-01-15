@@ -7,7 +7,7 @@
 
       <ul style="margin: 1rem 0">
         @foreach ($allCategories as $category)
-      <li>{{$category->name}}</li>
+          <li>{{$category->name}}</li>
         @endforeach
       </ul>
     </div>
