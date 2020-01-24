@@ -20,4 +20,4 @@ Devpost is a blogging website
 ![Admin Panel](screenshort/create_new_post.png?raw=true 'Title')
 
 #### About:
-![Admin Panel](screenshort/about.png.png?raw=true 'Title')
+![Admin Panel](screenshort/about.png?raw=true 'Title')
